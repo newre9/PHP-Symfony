@@ -1,0 +1,77 @@
+
+{{ include('flash.html.twig') }}
+<div class="card">
+    <div class="card-body card-block">
+        <form action="" method="post" class="form-">
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Email</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="user[email]"  value="{{ user.email }}"  class="form-control">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Password</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="user[password]"  value="{{ user.password }}"  class="form-control">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Name</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="user[name]"  value="{{ user.name }}"  class="form-control">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Status</label>
+                </div>
+                <div class="col-sm-6">
+                    <select  name="user[status]" class="form-control">
+                        <option> {{ user.status }}</option>
+                        <option>True</option>
+                        <option>False</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">ROLES</label>
+                </div>
+                <div class="col-sm-6">
+                    <select  name=user[roles]" class="form-control">
+                        {%  for item in user.roles %}{{ item }}<option selected> {{ item}}</option> {% endfor %}
+
+                        <option>ROLE_ADMIN</option>
+                        <option>ROLE_USER</option>
+                        <option>ROLE_POWER</option>
+                        <option>ROLE_MEMBER</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <td>
+                <button  class="btn  btn-block btn-info btn-xs">{{ button_label|default('Save') }}</button>
+
+            </td>
+            <td>
+                <a href="{{ path('admin_user_index') }}"class="btn  btn-block btn-dark btn-xs">back to list</a>
+            </td>
+
+
+
+</form></div></div>
+
+            </div>
+

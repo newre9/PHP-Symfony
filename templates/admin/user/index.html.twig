@@ -1,0 +1,69 @@
+
+{% extends 'Adminbase.html.twig' %}
+{% block title %}Shoping Admin Panel{% endblock %}
+{% block content %}
+<!-- MAIN CONTENT-->
+
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-30">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">User Listesi  </strong>
+                            {{ include('flash.html.twig') }}
+                        </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>göster</th>
+                <th>düzenle</th>
+                <th>sil</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+
+                <td>{%  for item in user.roles %}{{ item }} {% endfor %}</td>
+
+                <td>{{ user.name }}</td>
+                <td>{{ user.status }}</td>
+                <td>
+                    <a href="{{ path('admin_user_show', {'id': user.id}) }}">show</a>
+                </td>
+                <td>
+                    <a href="{{ path('admin_user_edit', {'id': user.id}) }}">edit</a>
+                </td>
+                <td>
+                    {{ include('admin/user/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_user_new') }}">Create new</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- END PAGE CONTAINER-->
+{% endblock %}
+

@@ -1,0 +1,72 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} shop cart  {% endblock %}
+
+  {% block sidebar %}{% include( 'home/usersidebar.html.twig') %}{% endblock %}
+{% block content   %}
+    {{ include('flash.html.twig') }}
+<div class="w3l_banner_nav_right">
+    <!-- about -->
+    <div class="privacy about">
+
+        <div class="w3l_banner_nav_right">
+
+            <div class="agileinfo_single">
+
+
+    <h1>Shopcart index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Sale Price</th>
+                <th>Total</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% set total=0 %}
+        {% for shopcart in shopcarts %}
+            <tr>
+                <td>{{ shopcart.id }}</td>
+                <td>{{ shopcart.title }}</td>
+                <td>{{ shopcart.sprice }}</td>
+                <td>{{ shopcart.quantity * shopcart.sprice }}</td>
+                <td>
+                    {{ include('shopcart/_delete_form.html.twig') }}
+                </td>
+            </tr>
+            {% set total = total+(shopcart.quantity*shopcart.sprice) %}
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        <td colspan="5" ><b> toplam alışveriş tutarı :{{ total }}</b>
+        </tbody>
+    </table>
+<a href="{{ path('orders_new') }}" class="btn-info">satın al</a>
+
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <div class="clearfix">
+
+    </div>
+    </div>
+
+    </div>
+    <!-- //about -->
+    </div>
+    <div class="clearfix"></div>
+    </div>
+    <!-- //banner -->
+    <!-- team -->
+
+{% endblock %}

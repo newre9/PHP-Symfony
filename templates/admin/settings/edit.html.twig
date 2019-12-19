@@ -1,0 +1,29 @@
+{% extends 'Adminbase.html.twig' %}
+{% block title %}Shoping Admin Panel{% endblock %}
+{% block content %}
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-30">
+                    <div class="card">
+                        <div class="card-header">
+                            Settings
+                            <table class="table">
+                                <tbody>
+
+                       {{ include('admin/settings/_form.html.twig', {'button_label': 'Güncelle'}) }}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE CONTAINER-->
+    {% endblock %}
+

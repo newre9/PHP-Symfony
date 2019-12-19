@@ -1,0 +1,72 @@
+
+
+<div class="card">
+    <div class="card-body card-block">
+        <form action="" method="post" class="form-">
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">üst kategory</label>
+                </div>
+
+                <div class="col-sm-6">
+                    <select  name="category[parentid]" class="form-control">
+                        {% if category.parentid!=0 %}
+                            <option value="{{ category.parentid }}">{{ catname.title }}</option>
+                        {% else %}
+                            <option value="0"> Ana Kategory</option>
+                        {% endif %}
+
+                        {% for cat in catlist %}
+                            <option value="{{ cat.id }}">{{ cat.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">title</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="category[title]"  value="{{ category.title }}"  class="form-control">
+                </div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-large" class=" form-control-label">description</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="category[description]"  value="{{ category.description }}"  class="input-lg form-control-lg form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-large" class=" form-control-label">keywords</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="category[keywords]"  value="{{ category.keywords }}"  class="input-lg form-control-lg form-control">
+                </div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Status</label>
+                </div>
+
+                <div class="col-sm-6">
+                    <select  name="category[status]" class="form-control">
+                        <option> {{ category.status }}</option>
+                        <option>True</option>
+                        <option selected>False</option>
+                    </select>
+                </div>
+            </div>
+            <button  class="badge-primary">{{ button_label|default('Save') }}</button>
+        </form>
+    </div>
+</div>

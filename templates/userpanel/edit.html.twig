@@ -1,0 +1,29 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} user edit  {% endblock %}
+
+  {% block sidebar %}{% include( 'home/usersidebar.html.twig') %}{% endblock %}
+{% block content   %}
+
+
+    <table class="table">
+        <tbody>
+
+        {{ include('userpanel/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+        </tbody>
+    </table>
+
+    <div class="clearfix">
+
+    </div>
+
+    <!-- //about -->
+
+    <div class="clearfix"></div>
+
+    <!-- //banner -->
+    <!-- team -->
+
+{% endblock %}

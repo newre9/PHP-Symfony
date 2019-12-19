@@ -1,0 +1,27 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} hakkımızda  {% endblock %}
+{% block keywords %}{{ data[0].keywords }}  {% endblock %}
+{% block description%}{{ data[0].description}}  {% endblock %}
+
+{% block content   %}
+    <div class="w3l_banner_nav_right">
+        <!-- about -->
+        <div class="privacy about">
+            <h3>About Us</h3>
+            <p>
+
+     {{ data[0].aboutus|raw }}
+
+
+            </p>
+
+        </div>
+        <!-- //about -->
+    </div>
+    <div class="clearfix"></div>
+    </div>
+    <!-- //banner -->
+    <!-- team -->
+
+{% endblock %}

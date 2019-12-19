@@ -1,0 +1,56 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}{{ data[0].title }}  {% endblock %}
+{% block keywords %}{{ data[0].keywords }}  {% endblock %}
+{% block description%}{{ data[0].description}}  {% endblock %}
+{% block sidebar %}{{ include('home/sidebar.html.twig')}}  {% endblock %}
+{% block content   %}
+
+    <div class="top-brands">
+        <h3>{{ data[0].title }}</h3>
+        {% for rs in products %}
+        <div class="container">
+
+            <div class="agile_top_brands_grids">
+                <div class="col-md-3 top_brand_left">
+                    <div class="hover14 column">
+                        <div class="agile_top_brand_left_grid">
+                            <div class="tag"><img src="{{ asset('home') }}/images/tag.png" alt=" " class="img-responsive" /></div>
+                            <div class="agile_top_brand_left_grid1">
+                                <figure>
+                                    <div class="snipcart-item block" >
+                                        <div class="snipcart-thumb">
+                                            <a href="{{ path('product_detail',{'id': rs.id}) }}"><img title=" " alt=" " src="{{ asset('uploads') }}/images/{{ rs.image }}" height="120" width="120" /></a>
+                                            <p>{{ rs.title }} </p>
+                                            <h4>{{ rs.pprice }} TL </h4>
+                                        </div>
+                                        <div class="snipcart-details top_brand_home_details">
+                                            <form name="shopcart" action="{{ path('shopcart_new') }}"  method="post">
+                                                <fieldset>
+
+                                                    <input type="hidden" name="shopcart[quantity]"  value="1" />
+                                                    <input type="hidden" name="shopcart[productid]" value="{{ data[0].id  }}" />
+
+                                                    <input type="hidden" name="token" value="{{ csrf_token('add-item') }}"/>
+                                                    <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                </fieldset>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+
+{% endblock %}

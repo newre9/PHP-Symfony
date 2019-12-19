@@ -1,0 +1,34 @@
+
+{% extends 'Adminbase.html.twig' %}
+
+{% block title %}Shoping Admin Panel{% endblock %}
+
+{% block content %}
+
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-30">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">User Ekleme  </strong>
+                        </div>
+                        <table class="table">
+                            <tbody>
+
+    {{ include('admin/user/_form.html.twig') }}
+
+    <a href="{{ path('admin_user_index') }}">back to list</a>
+                            </tbody></table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- END PAGE CONTAINER-->
+{% endblock %}
+

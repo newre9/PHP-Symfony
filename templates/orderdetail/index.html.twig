@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Orderdetail index{% endblock %}
+
+{% block body %}
+    <h1>Orderdetail index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Orderid</th>
+                <th>Userid</th>
+                <th>Productid</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Creatat</th>
+                <th>Updateat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for orderdetail in orderdetails %}
+            <tr>
+                <td>{{ orderdetail.id }}</td>
+                <td>{{ orderdetail.orderid }}</td>
+                <td>{{ orderdetail.userid }}</td>
+                <td>{{ orderdetail.productid }}</td>
+                <td>{{ orderdetail.price }}</td>
+                <td>{{ orderdetail.quantity }}</td>
+                <td>{{ orderdetail.amount }}</td>
+                <td>{{ orderdetail.name }}</td>
+                <td>{{ orderdetail.status }}</td>
+                <td>{{ orderdetail.creatat ? orderdetail.creatat|date('H:i:s') : '' }}</td>
+                <td>{{ orderdetail.updateat ? orderdetail.updateat|date('H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('orderdetail_show', {'id': orderdetail.id}) }}">show</a>
+                    <a href="{{ path('orderdetail_edit', {'id': orderdetail.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('orderdetail_new') }}">Create new</a>
+{% endblock %}

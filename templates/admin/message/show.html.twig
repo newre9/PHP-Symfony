@@ -1,0 +1,71 @@
+
+{% extends 'Adminbase.html.twig' %}
+{% block title %}Shoping Admin Panel{% endblock %}
+{% block content %}
+<!-- MAIN CONTENT-->
+
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-30">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Mesaj Detayı  </strong>
+                        </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ message.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ message.name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ message.email }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ message.message }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ message.status }}</td>
+            </tr>
+            <tr>
+                <th>Subject</th>
+                <td>{{ message.subject }}</td>
+            </tr>
+            <tr>
+                <th>Comment</th>
+                <td>{{ message.comment }}</td>
+            </tr>
+        </tbody>
+    </table>
+<form action="{{ path('admin_message_update',{'id':message.id}) }}" method="post">
+    <textarea name="comment"  cols="10" rows="10"> {{ message.comment }}  </textarea>
+
+     <input type="submit" value="güncelle">
+
+</form>
+    <a href="{{ path('admin_message_index') }}">back to list</a>
+
+    <a href="{{ path('admin_message_edit', {'id': message.id}) }}">edit</a>
+
+    {{ include('admin/message/_delete_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- END PAGE CONTAINER-->
+{% endblock %}
+
+

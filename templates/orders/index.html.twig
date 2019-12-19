@@ -1,0 +1,64 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %}Shopcart Order Items  {% endblock %}
+
+{% block sidebar %}{% include( 'home/usersidebar.html.twig') %}{% endblock %}
+{% block content   %}
+    {{ include('flash.html.twig') }}
+<div class="w3l_banner_nav_right">
+    <!-- about -->
+    <div class="privacy about">
+    <h1>Orders index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Userid</th>
+                <th>Amount</th>
+                <th>Name</th>
+                <th>Adres</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Note</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.userid }}</td>
+                <td>{{ order.amount }}</td>
+                <td>{{ order.name }}</td>
+                <td>{{ order.adres }}</td>
+                <td>{{ order.city }}</td>
+                <td>{{ order.phone }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.note }}</td>
+
+                <td>
+                    <a href="{{ path('orders_show', {'id': order.id}) }}">show</a>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    </div>
+    <!-- //about -->
+</div>
+    <div class="clearfix"></div>
+    </div>
+    <!-- //banner -->
+    <!-- team -->
+
+{% endblock %}

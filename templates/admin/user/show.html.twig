@@ -1,0 +1,58 @@
+{% extends 'Adminbase.html.twig' %}
+{% block title %}Shoping Admin Panel{% endblock %}
+{% block content %}
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-30">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">User Detay </strong>
+                        </div>
+
+
+                        <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+
+                <td>{%  for item in user.roles %}{{ item }} {% endfor %}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ user.name }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ user.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+                        <td>
+                            <a href="{{ path('admin_user_index') }}"class="btn  btn-block btn-dark btn-xs">back to list</a>
+                        </td>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- END PAGE CONTAINER-->
+{% endblock %}
+

@@ -1,0 +1,36 @@
+
+{% extends 'Adminbase.html.twig' %}
+{% block title %}Shoping Admin Panel{% endblock %}
+{% block content %}
+
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-30">
+                    <div class="card">
+                        <div class="card-header">
+                            Product Düzenleme
+
+                            <table class="table">
+                                <tbody>
+
+
+
+                                <section class="panel">
+                                    {{ include('flash.html.twig', {'button_label': 'Update'}) }}
+                                    <div class="panel-body">
+                                        {{ include('admin/product/_form.html.twig', {'button_label': 'Güncelle'}) }}
+                                    </div>
+                                </section>
+
+                                </tbody></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE CONTAINER-->
+    {% endblock %}

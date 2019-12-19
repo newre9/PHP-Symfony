@@ -1,0 +1,26 @@
+{% extends 'Adminbase.html.twig' %}
+
+{% block title %}Shoping Admin Panel{% endblock %}
+
+{% block content %}
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-30">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Kategory Ekleme  </strong>
+                            </div>
+                            {{ include('admin/category/_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE CONTAINER-->
+{% endblock %}
+
+

@@ -1,0 +1,80 @@
+{{ include('flash.html.twig') }}
+<div class="card">
+    <div class="card-body card-block">
+        <form action="{{ path('orders_new') }}" name="order" method="post" class="form-">
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Ödenecek Tutar</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="product[title]"  value="{{ total }}"  class="form-control">
+                </div>
+            </div>
+            KARGO BİLGİLERİ
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Adı Soyadı</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="orders[name]"  value="{{app.user.name }}"  class="form-control">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Adres</label>
+                </div>
+                <textarea id="ckeditör" name="orders[adres]" rows="10" cols="75">{{app.user.adress  }}</textarea>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Şehir</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="orders[city]"  value="{{ app.user.city }}"  class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Telefon</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="orders[phone]"  value="{{ app.user.phone }}"  class="form-control">
+                </div>
+            </div>
+
+KREDİ KART BİLGİLERİ
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">User_id</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name=""  value=""  class="form-control">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Status</label>
+                </div>
+
+                <div class="col-sm-6">
+                    <select  name="" class="form-control">
+                        <option> </option>
+                        <option>True</option>
+                        <option>False</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <td>
+                <button  class="btn  btn-block btn-info btn-xs">{{ button_label|default('Save') }}</button>
+
+            </td>
+            <td>
+                <a href="{{ path('admin_product_index') }}"class="btn  btn-block btn-dark btn-xs">back to list</a>
+            </td>
+        </form>
+    </div></div>

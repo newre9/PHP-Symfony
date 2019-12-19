@@ -1,0 +1,113 @@
+<style>
+    ul#menu-v, #menu-v ul
+    {
+        width:200px; /* Main Menu width */
+        border:1px solid rgba(190,190,190,0.3);
+        list-style:none; margin:0; padding:0;
+        z-index:9;
+    }
+
+    #menu-v li
+    {
+        margin:0;padding:0;
+        position:relative;
+        background-color:#C9C9C9; /*fallback color*/
+        background-color:rgba(0,0,0,0.5);
+        transition:background 0.5s;
+    }
+    #menu-v li:hover
+    {
+        background-color:rgba(0,0,0,0.9);
+    }
+
+    #menu-v a
+    {
+        font:normal 12px Arial;
+        border-top:1px solid rgba(100,190,190,0.3);
+        display:block;
+        color:#000000;
+        text-decoration:aquamarine;
+        line-height:50px;
+        padding-left:30px;
+        position:relative;
+    }
+
+    #menu-v li:first-child a
+    {
+        border-top:0;
+    }
+
+    #menu-v a.arrow::after{
+        content:'';
+        position:absolute;
+        display:inline;
+        top:50%;
+        margin-top:-4px;
+        right:8px;
+        border-width:4px;
+        border-style:solid;
+        border-color:transparent transparent transparent white;
+        transition:border-color 0.5s;
+    }
+
+    #menu-v li a.arrow:hover::after
+    {
+        border-color:transparent transparent transparent #CCCCCC;
+    }
+
+    /*Sub level menu items
+    ---------------------------------------*/
+    #menu-v li ul
+    {
+        min-width:180px; /* Sub level menu min width */
+        position:absolute;
+        display:none;
+        left:100%;
+        top:50%; transform:translateY(-50%);
+    }
+
+    #menu-v a:hover
+    {
+        background-color:#00ad5f;
+        color: white;
+    }
+    #menu-v li:hover > ul
+    {
+        display:block;
+    }
+</style>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
+<div class="banner">
+    <div class="w3l_banner_nav_left">
+        <nav class="navbar nav_bottom">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header nav_2">
+                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="row">
+                <div id="sidebar" class="span3">
+                    <div class="well well-small">
+                        <ul id="menu-v">
+                        {% for cr in cats %}
+                            {{ cr|raw }}
+                        {% endfor  %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- /.navbar-collapse -->
+        </nav>
+    </div></div>

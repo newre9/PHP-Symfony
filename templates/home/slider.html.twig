@@ -1,0 +1,50 @@
+
+
+
+
+
+
+
+<div class="w3l_banner_nav_right">
+    <section class="slider">
+        <div class="flexslider">
+            <ul class="slides">
+
+                {% for rs in sliders %}
+
+
+                <li>
+                    <div>
+                    <img src="{{ asset ('uploads') }}/images/{{ rs.image }}"style="width:1000px;height:600px;">
+                    </div>
+                    <div>
+
+                        <div class="more">
+                            <h3>{{ rs.title }}</h3>
+                            <a href="{{ path('product_detail',{'id': rs.id}) }}" class="button--saqui button--round-l button--text-thick" data-text="Shop now">detay</a>
+                        </div>
+                    </div>
+                </li>
+                {% endfor  %}
+
+            </ul>
+        </div>
+    </section>
+    <!-- flexSlider -->
+    <link rel="stylesheet" href="home/css/flexslider.css" type="text/css" media="screen" property="" />
+    <script defer src="home/js/jquery.flexslider.js"></script>
+    <script type="text/javascript">
+        $(window).load(function(){
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function(slider){
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+    <!-- //flexSlider -->
+</div>
+<div class="clearfix"></div>
+</div>
+<!-- banner -->

@@ -1,0 +1,67 @@
+{% extends 'Adminbase.html.twig' %}
+{% block title %}Shoping Admin Panel{% endblock %}
+{% block content %}
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-30">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Kategory Listesi  </strong>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Parentid</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Keywords</th>
+                                    <th>Status</th>
+                                    <th>Göster</th>
+                                    <th>Düzenle</th>
+                                    <th>Sil</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for category in categories %}
+                                    <tr>
+                                        <td>{{ category.id }}</td>
+                                        <td>{{ category.parentid }}</td>
+                                        <td>{{ category.title }}</td>
+                                        <td>{{ category.description }}</td>
+                                        <td>{{ category.keywords }}</td>
+                                        <td>{{ category.status }}</td>
+
+                                        <td>
+                                            <a href="{{ path('admin_category_show', {'id': category.id}) }}"class="btn  btn-block btn-warning btn-xs">show</a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ path('admin_category_edit', {'id': category.id,'pid': category.parentid}) }}"class="btn  btn-block btn-dark btn-xs">edit</a>
+                                        </td>
+                                        <td>
+                                            {{ include('admin/category/_delete_form.html.twig') }}
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="9">no records found</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <a href="{{ path('admin_category_new') }}"class="btn  btn-danger ">Create new</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- END PAGE CONTAINER-->
+{% endblock %}
+

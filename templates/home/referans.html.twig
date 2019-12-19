@@ -1,0 +1,24 @@
+{% extends 'frontbase.html.twig' %}
+{% block title %} referanslar  {% endblock %}
+{% block keywords %}{{ data[0].keywords }}  {% endblock %}
+{% block description%}{{ data[0].description}}  {% endblock %}
+
+{% block content %}
+    <div class="w3l_banner_nav_right">
+        <!-- about -->
+        <div class="privacy about">
+            <h3>Referanslar</h3>
+
+
+                {{ data[0].referans|raw }}
+
+
+
+
+        </div>
+        <!-- //about -->
+    </div>
+    <div class="clearfix"></div>
+
+
+{% endblock %}

@@ -1,0 +1,193 @@
+
+
+{{ include('flash.html.twig') }}
+
+
+<div class="card">
+    <div class="card-body card-block">
+        <form action="" method="post" class="form-group" name="settings">
+
+
+
+            <div class="card-body">
+                <div class="default-tab">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
+                               aria-selected="true">Genel Bilgiler</a>
+                            <a class="nav-item nav-link" id="nav-ser-tab" data-toggle="tab" href="#nav-ser" role="tab" aria-controls="nav-ser"
+                               aria-selected="false">Server Ayarlar</a>
+                            <a class="nav-item nav-link" id="nav-ilet-tab" data-toggle="tab" href="#nav-ilet" role="tab" aria-controls="nav-ilet"
+                               aria-selected="false">iletişim</a>
+                            <a class="nav-item nav-link" id="nav-hak-tab" data-toggle="tab" href="#nav-hak" role="tab" aria-controls="nav-hak"
+                               aria-selected="false">hakkımızda</a>
+                            <a class="nav-item nav-link" id="nav-refe-tab" data-toggle="tab" href="#nav-refe" role="tab" aria-controls="nav-refe"
+                               aria-selected="false">Referans</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="row form-group">
+                                <div class="col col-sm-5">
+                                    <label for="input-normal" class=" form-control-label">title</label>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" name="settings[title]" value="{{ setting.title }}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-sm-5">
+                                    <label for="input-normal" class=" form-control-label">company</label>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" name="settings[company]" value="{{ setting.company }}" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-sm-5">
+                                    <label for="input-normal" class=" form-control-label">Address</label>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" name="settings[address]" value="{{ setting.address }}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-sm-5">
+                                    <label for="input-normal" class=" form-control-label">Telefon</label>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" name="settings[telefon]" value="{{ setting.telefon }}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-sm-5">
+                                    <label for="input-normal" class=" form-control-label">Email</label>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" name="settings[email]" value="{{ setting.email }}" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-sm-5">
+                                    <label for="input-large" class=" form-control-label">description</label>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" name="settings[description]" value="{{ setting.description }}"  class="input-lg form-control-lg form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-sm-5">
+                                    <label for="input-large" class=" form-control-label">keywords</label>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" name="settings[keywords]" value="{{ setting.keywords }}"  class="input-lg form-control-lg form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col col-sm-5">
+                                    <label for="input-normal" class=" form-control-label">Status</label>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <select name="settings[status]" class="form-control">
+                                        <option> {{ setting.status }}</option>
+                                        <option>True</option>
+                                        <option>False</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-ser" role="tabpanel" aria-labelledby="nav-ser-tab">
+                            <div class="row form-group">
+                                <div class="col col-sm-5">
+                                    <label for="input-normal" class=" form-control-label">Email Server</label>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" name="settings[smtpserver]" value="{{ setting.smtpserver }}" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-sm-5">
+                                    <label for="input-normal" class=" form-control-label">Email</label>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" name="settings[smtpmail]" value="{{ setting.smtpmail }}" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-sm-5">
+                                    <label for="input-normal" class=" form-control-label">Email Şifre</label>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" name="settings[smtppasw]" value="{{ setting.smtppasw }}" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-sm-5">
+                                    <label for="input-normal" class=" form-control-label">SMPT Port</label>
+                                </div>
+                                <div class="col col-sm-6">
+                                    <input type="text" name="settings[smtpport]" value="{{ setting.smtpport }}" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="nav-ilet" role="tabpanel" aria-labelledby="nav-ilet-tab">
+                            <div class="row form-group">
+
+                                <textarea id="ckeditör" name="settings[contact]" rows="10" cols="75">{{ setting.contact }}</textarea>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-hak" role="tabpanel" aria-labelledby="nav-hak-tab">
+                            <div class="row form-group">
+
+                                <textarea id="ckeditör2" name="settings[aboutus]" rows="10" cols="75">{{ setting.aboutus }}</textarea>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-refe" role="tabpanel" aria-labelledby="nav-refe-tab">
+                            <div class="row form-group">
+
+                                <textarea id="ckeditör3" name="settings[referans]" rows="10" cols="75">{{ setting.referans }}</textarea>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <button  class="btn  btn-block btn-info btn-xs">{{ button_label|default('Save') }}</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#ckeditör'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#ckeditör2'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#ckeditör3'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>

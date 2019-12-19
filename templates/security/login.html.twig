@@ -1,0 +1,92 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} login - {{ data[0].title }}  {% endblock %}
+{% block keywords %}{{ data[0].keywords }}  {% endblock %}
+{% block description%}{{ data[0].description}}  {% endblock %}
+{% block sidebar %}
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+{% include( 'home/usersidebar.html.twig') %}
+{% endif %}
+{% endblock %}
+{% block content   %}
+
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                  name:{{ app.user.name }}<br>
+                   Email:{{ app.user.email }}
+
+
+{% else %}
+    {{ include('flash.html.twig') }}
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="checkbox mb-3">You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+    {% endif %}
+            <div class="w3_login">
+                <h3>Sign In & Sign Up</h3>
+                <div class="w3_login_module">
+                    <div class="module form-module">
+                        <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+
+                        </div>
+                        <div class="form">
+                            <h2>Login to your account</h2>
+                            <form action="#" method="post">
+                                <input type="email" value="{{ last_username }}" name="email" id="inputEmail"  placeholder="Username" required=" ">
+                                <input type="password" name="password" id="inputPassword" placeholder="Password" required=" ">
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                <input type="submit" value="Login">
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+                <script>
+                    $('.toggle').click(function(){
+                        // Switches the Icon
+                        $(this).children('i').toggleClass('fa-pencil');
+                        // Switches the forms
+                        $('.form').animate({
+                            height: "toggle",
+                            'padding-top': 'toggle',
+                            'padding-bottom': 'toggle',
+                            opacity: "toggle"
+                        }, "slow");
+                    });
+                </script>
+            </div>
+
+
+
+
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+
+
+    <a href="{{ path('new_user') }}">Üye Ol</a>
+        </div></form>
+{% endif %}
+
+    </div>
+    <!-- //about -->
+
+    <div class="clearfix"></div>
+
+    <!-- //banner -->
+    <!-- team -->
+
+{% endblock %}

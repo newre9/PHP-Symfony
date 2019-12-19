@@ -1,0 +1,38 @@
+{% extends 'frontbase.html.twig' %}
+{% block title %} iletişim  {% endblock %}
+{% block keywords %}{{ data[0].keywords }}  {% endblock %}
+{% block description%}{{ data[0].description}}  {% endblock %}
+
+{% block content %}
+
+    <div class="mail">
+        <h3>Bizimle iletişime geçin  </h3>
+        {{ include('flash.html.twig') }}
+        <div class="agileinfo_mail_grids">
+            <div class="col-md-4 agileinfo_mail_grid_left">
+                {{ data[0].contact|raw }}
+            </div>
+            <div class="col-md-8 agileinfo_mail_grid_right">
+                <form action="#" name="message" method="post">
+                    <div class="col-md-6 wthree_contact_left_grid">
+                        <input type="text" name="message[name]" value="Name*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name*';}" required="">
+                        <input type="email" name="message[email]" value="Email*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email*';}" required="">
+                    </div>
+                    <div class="col-md-6 wthree_contact_left_grid">
+                        <input type="text" name="Telephone" value="Telephone*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone*';}" required="">
+                        <input type="text" name="message[subject]" value="Subject*" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject*';}" required="">
+                    </div>
+                    <div class="clearfix"> </div>
+                    <textarea  name="message[message]" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+                    <input type="hidden" name="token" value="{{ csrf_token('form-message') }}"/>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Clear">
+                </form>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

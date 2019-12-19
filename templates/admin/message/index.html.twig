@@ -1,0 +1,65 @@
+
+{% extends 'Adminbase.html.twig' %}
+{% block title %}Shoping Admin Panel{% endblock %}
+{% block content %}
+    <!-- MAIN CONTENT-->
+
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-30">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Mesaj Listesi  </strong>
+                            </div>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Message</th>
+                                    <th>Status</th>
+                                    <th>Subject</th>
+                                    <th>Comment</th>
+                                    <th>actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for message in messages %}
+                                    <tr>
+                                        <td>{{ message.id }}</td>
+                                        <td>{{ message.name }}</td>
+                                        <td>{{ message.email }}</td>
+                                        <td>{{ message.message }}</td>
+                                        <td>{{ message.status }} </td>
+                                        <td>{{ message.subject }}</td>
+                                        <td>{{ message.comment }}</td>
+                                        <td>
+
+                                            <a href="#" onclick="javascript:openWin('{{ path('admin_message_show', {'id': message.id}) }}','','toolbar=no,location=no,directories=no,status=no,top=100,left=200,menuBar=no,scrollBars=no,resizable=no,width=500,height=500')">
+                                           Mesajı Oku
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="8">no records found</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                            <a href="{{ path('admin_message_new') }}">Create new</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- END PAGE CONTAINER-->
+{% endblock %}
+

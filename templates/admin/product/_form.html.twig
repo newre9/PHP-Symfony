@@ -1,0 +1,148 @@
+{{ include('flash.html.twig') }}
+<div class="card">
+    <div class="card-body card-block">
+        <form action="" method="post" class="form-">
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">title</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="product[title]"  value="{{ product.title }}"  class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Amount</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="product[amount]"  value="{{ product.amount }}"  class="form-control">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Type</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="product[type]"  value="{{ product.type }}"  class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Year</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="product[year]"  value="{{ product.year }}"  class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">ımage</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="product[image]"  value="{{ product.image }}"  class="form-control">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Kategorisi</label>
+                </div>
+                <div class="col-sm-6">
+                    <select  name="product[categoryid]" class="form-control">
+                        {% if(catname) %}
+                        <option value="{{ product.categoryid }}">{{ catname[0].title }}</option>
+                        {% endif %}
+                        {% for cat in catlist %}
+                            <option value="{{ cat.id }}">{{ cat.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">User_id</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="product[userid]"  value="{{ product.userid }}"  class="form-control">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Pprice</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="product[pprice]"  value="{{ product.pprice }}"  class="form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Sprice</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="product[sprice]"  value="{{ product.sprice }}"  class="form-control">
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-large" class=" form-control-label">description</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="product[description]"  value="{{ product.description }}"  class="input-lg form-control-lg form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-large" class=" form-control-label">keywords</label>
+                </div>
+                <div class="col col-sm-6">
+                    <input type="text" name="product[keywords]"  value="{{ product.keywords }}"  class="input-lg form-control-lg form-control">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Status</label>
+                </div>
+
+                <div class="col-sm-6">
+                    <select  name="product[status]" class="form-control">
+                        <option> {{ product.status }}</option>
+                        <option>True</option>
+                        <option>False</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col col-sm-5">
+                    <label for="input-normal" class=" form-control-label">Detay</label>
+                </div>
+
+
+                <textarea id="ckeditör" name="product[detail]" rows="10" cols="75">{{ product.detail }}</textarea>
+
+
+            </div>
+            <td>
+                <button  class="btn  btn-block btn-info btn-xs">{{ button_label|default('Save') }}</button>
+
+            </td>
+            <td>
+                <a href="{{ path('admin_product_index') }}"class="btn  btn-block btn-dark btn-xs">back to list</a>
+            </td>
+        </form>
+        <script>
+            ClassicEditor
+                .create( document.querySelector( '#ckeditör' ) )
+                .catch( error => {
+                    console.error( error );
+                } );
+        </script>
+
+    </div>
+</div>
+

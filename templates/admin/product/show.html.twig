@@ -1,0 +1,105 @@
+{% extends 'Adminbase.html.twig' %}
+{% block title %}Shoping Admin Panel{% endblock %}
+{% block content %}
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-30">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Product Detay  </strong>
+                            </div>
+
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <th>Id</th>
+                                    <td>{{ product.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Title</th>
+                                    <td>{{ product.title }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Type</th>
+                                    <td>{{ product.type }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Publish_id</th>
+                                    <td>{{ product.publishId }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Year</th>
+                                    <td>{{ product.year }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Amount</th>
+                                    <td>{{ product.amount }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Pprice</th>
+                                    <td>{{ product.pprice }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Sprice</th>
+                                    <td>{{ product.sprice }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Description</th>
+                                    <td>{{ product.description }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Keywords</th>
+                                    <td>{{ product.keywords }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Detail</th>
+                                    <td>{{ product.detail }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Image</th>
+                                    <td>{{ product.image }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Writer</th>
+                                    <td>{{ product.writer }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <td>{{ product.status }}</td>
+                                </tr>
+                                <tr>
+                                    <th>User_id</th>
+                                    <td>{{ product.userId }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Category_id</th>
+                                    <td>{{ catname[0].title }}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="{{ path('admin_product_index') }}"class="btn  btn-block btn-dark btn-xs">back to list</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('admin_product_edit', {'id': product.id}) }}" class="btn  btn-block btn-info btn-xs">edit</a>
+                                    </td>
+                                    <td>
+                                        {{ include('admin/product/_delete_form.html.twig') }}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE CONTAINER-->
+{% endblock %}
+
+
